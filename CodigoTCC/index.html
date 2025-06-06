@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" href="./imagem/Logo-icon.png">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SportMax</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho">
+            <div class="logo">
+                <img src="./imagem/Logo.jpeg" alt="Logo SportMax" class="logo__img">
+            </div>
+
+            <input class="botao__pesquisa" type="text" placeholder="Pesquisa"/>
+
+            <nav>
+                <a href="./login.html">Login/cadastre-se</a>
+                <a href="#">Favorito</a>
+                <a href="#">Contato</a>
+            </nav>
+
+            <div class="icones">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="botao__categorias">
+            <a href="#">Roupas</a>
+            <a href="#">Calçados</a>
+            <a href="#">Esportes</a>
+            <a href="#">Criança</a>
+            <a href="#">Bicicleta</a>
+            <a href="#">Marcas</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="carrosel">
+            <h1 class="texto">Ofertas da semana aqui!</h1>
+
+            <div class="image-container active">
+                <img src="./imagem/Carrosel8.png" alt="Imagem Carrosel 1">
+            </div>
+            <div class="image-container">
+                <img src="imagem/Carrosel2.png" alt="Imagem Carrosel 2">
+            </div>
+            <div class="image-container">
+                <img src="imagem/Carrosel3.png" alt="Imagem Carrosel 3">
+            </div>
+            <div class="image-container">
+                <img src="imagem/Carrosel4.png" alt="Imagem Carrosel 4">
+            </div>
+            <div class="image-container">
+                <img src="imagem/Carrosel5.png" alt="Imagem Carrosel 5">
+            </div>
+
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>  
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="container">
+        <h3 class="texto__oferta">Ofertas do dia</h3>
+        <div class="Promocao_dia">
+            <img src="./imagem/Produto1.png" alt="">
+            <img src="./imagem/Produto2.png" alt="">
+            <img src="./imagem/Produto3.png" alt="">
+        </div>
+    </section>
+
+    <footer>
+        <div class="rodape">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Atendimento e ajuda</h4>
+                    <ul>
+                        <li><a href="./contato.html">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Políticas reguladoras</h4>
+                    <ul>
+                        <li><a href="#">Política de reembolso</a></li>
+                        <li><a href="#">Política de privacidade</a></li>
+                        <li><a href="#">Termos e condições</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Trabalhe conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Cupons e Promoções</h4>
+                    <ul>
+                      <li><a href="#">Ofertas Promocionais</a></li>
+                      <li><a href="#">Cupons exclusivos</a></li>
+                      <li><a href="#">Cupom Parceiros</a></li>
+                    </ul>
+                  </div>
+                </div>
+             
+                <div class="footer-bottom">
+                    <div class="footer-payment">
+                      <h4>Formas de pagamento</h4>
+                      <div class="payment-icons">
+                        <img src="./imagem/mastercard.png" alt="Mastercard">
+                        <img src="./imagem/LogoHipercard.png" alt="Hipercard">
+                        <img src="./imagem/LogoPix.png" alt="Pix">
+                        <img src="./imagem/LogoVisa.png" alt="Visa">
+                      </div>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Redes sociais</h4>
+                    <div class="social-icons">
+                      <i class="fab fa-facebook"></i>
+                      <i class="fab fa-instagram"></i>
+                      <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright &copy; Sport Max - 2025</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

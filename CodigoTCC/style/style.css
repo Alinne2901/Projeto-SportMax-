@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --branco-principal: #FFFFFF;
+    --preto-principal: #000000;
+    --cor-cabecalho: #000000;
+    --cor-texto: #000;
+    --cor-linha: #000000;
+    --font-size-botao: 16px;
+    --font-family: 'Inter', sans-serif;
+    --color-botao-hover: #0000FF;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: var(--branco-principal);
+}
+
+header {
+    background-color: var(--cor-cabecalho);
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0 1rem;
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.botao__pesquisa {
+    width: 700px;
+    height: 30px;
+    padding: 0 1rem;
+    border-radius: 15px;
+    border: none;
+}
+
+nav a{
+    font-size: var(--font-size-botao);
+    color: var(--branco-principal);
+    padding: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--color-botao-hover);
+}
+
+.icones {
+    margin-right: 2rem;
+}
+
+.icones i {
+    font-size: 1.5rem;
+    color: var(--branco-principal);
+    cursor: pointer;
+}
+
+.icones i:hover {
+    color: var(--color-botao-hover);
+}
+
+.container {
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+
+.botao__categorias {
+    padding: 1rem;
+    border-bottom: 1px solid var(--cor-linha);
+}
+
+.botao__categorias a{
+    font-size: var(--font-size-botao);
+    color: var(--cor-texto);
+    padding: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao__categorias a:hover {
+    color: var(--color-botao-hover);
+}
+
+.carrosel {
+    padding: 20px 40px;
+    align-items: center;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+}
+
+.carrosel img {
+    width: 1000px;
+    height: 250px;
+}
+
+
+.image-container {
+    display: none; 
+}
+ 
+.image-container.active {
+    display: block; 
+}
+
+.prev {
+    left: 50px;
+    color: var(--branco-principal); 
+}
+ 
+.next {
+    right: 50px;
+    color: var(--branco-principal);
+}
+
+button { 
+    position: absolute;
+    top: 60%;
+    background-color: var(--preto-principal);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;  
+}
+
+.texto__oferta {
+    font-size: 26px;
+}
+
+.Promocao_dia img{
+    width: 250px;
+    height: 250px;
+    padding: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.rodape {
+    border-top: 1px solid #000000;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer {
+    padding: 40px 20px 20px;
+    color: #000;
+    font-size: 14px;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    margin-bottom: 30px; 
+}
+
+.footer-col h4 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom { 
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+.footer-payment, .footer-social { 
+    flex: 1 1 300px;
+    margin: 10px 20px;
+}
+
+.footer-payment h4,
+.footer-social h4 {
+    font-weight: bold; 
+    margin-bottom: 10px;
+}
+
+.payment-icons img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+footer .copyright {
+    background-color: #ecf0f1;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 30px;
+}
