@@ -5,9 +5,12 @@ const express = require('express');
 const mysql = require('mysql2/promise'); // Usamos a versão com Promises do mysql2
 // O bcryptjs foi removido
 const jwt = require('jsonwebtoken'); // Para gerar tokens JWT no login
+const cors = require('cors');
 
 // Configurações da aplicação Express
 const app = express();
+// Permitir requisições de qualquer origem
+app.use(cors());
 app.use(express.json()); // Middleware para parsear o corpo das requisições como JSON
 
 // ---- ATENÇÃO: Configurações diretamente no código (NÃO RECOMENDADO PARA PRODUÇÃO) ----
@@ -15,7 +18,7 @@ app.use(express.json()); // Middleware para parsear o corpo das requisições co
 const dbConfig = {
     host: 'localhost',         // Host do seu MySQL (ex: 'localhost' ou IP)
     user: 'root',              // Usuário do MySQL
-    password: 'root', // Senha do seu usuário MySQL
+    password: '29012006', // Senha do seu usuário MySQL
     database: 'SportMax',      // Nome do banco de dados conforme seu script SQL
     waitForConnections: true,
     connectionLimit: 10,

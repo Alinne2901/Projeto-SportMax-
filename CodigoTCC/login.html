@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,16 +23,49 @@
 
     <main>
         <div class="login">
-            <form>
+            <form id="login-form">
                 <h1 class="titulo">Login</h1>
                 <p class="Acesso">Acesse sua conta para continuar</p>
-                <input placeholder="E-mail" type="email" required/>
-                <input placeholder="Senha" type="password" required/>
+                <input placeholder="E-mail" type="email" name="email" required/>
+                <input placeholder="Senha" type="password" name="senha" required/>
                 <a href="#" class="esqueci__senha">Esqueci minha senha</a>
-                <a href="./index.html" class="botao__entrar">Entrar</a>
+                <button type="submit" class="botao__entrar">Entrar</button>
                 <p class="conta">Não tem conta? <a href="./cadastro.html">Cadastre-se</a></p>
             </form>
         </div>
     </main> 
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+            debugger;
+            const email = event.target.email.value;
+            const senha = event.target.senha.value;
+
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            const raw = JSON.stringify({
+                email: email,
+                senha: senha
+            });
+
+            const requestOptions = {
+                method: "POST",
+                headers: myHeaders,
+                body: raw,
+                redirect: "follow"
+            };
+
+            fetch("http://localhost:3000/login", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    window.location.href = "index.html";
+                    // Você pode redirecionar ou exibir mensagem aqui
+
+                })
+                .catch(error => alert("Erro:",  error.message));
+            });
+    </script>
 </body>
 </html>
