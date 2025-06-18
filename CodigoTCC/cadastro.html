@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +23,7 @@
 
     <main>
         <div class="cadastro">
-            <form action="config.php" method= "POST">
+            <form id="cadastro-form">
                 <h1>Cadastrar-se</h1>
                 <p class="Acesso">Crie sua conta para continuar</p>
                 <input name="email" placeholder="E-mail" type="email" required />
@@ -36,5 +35,68 @@
             </form>
         </div>
     </main> 
+
+    <script>
+    document.getElementById('cadastro-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const email = this.email.value;
+        const senha = this.senha.value;
+        const confirmaSenha = this.confirma_senha.value;
+        const cpf = this.cpf.value;
+
+        if (senha !== confirmaSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
+        try {
+            const resposta = await fetch("http://localhost:3000/cadastro", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, senha, cpf })
+            });
+
+            const dados = await resposta.json();
+
+            if (resposta.ok) {
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "login.html";
+            } else {
+                alert("Erro: " + dados.message);
+            }
+
+
+        } catch (erro) {
+            console.error("Erro ao conectar com a API:", erro);
+            alert("Erro na conexão com o servidor.");
+        }
+    });
+    </script>
+
+    <script>
+        const cpfInput = document.querySelector('input[name="cpf"]');
+
+        cpfInput.addEventListener('input', function(e) {
+        let valor = e.target.value;
+
+        // Remove tudo que não for número
+        valor = valor.replace(/\D/g, '');
+
+        // Limita o tamanho em 11 dígitos
+        if (valor.length > 11) {
+            valor = valor.slice(0, 11);
+        }
+
+        // Formata o CPF: 000.000.000-00
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+        e.target.value = valor;
+        });
+</script>
+
 </body>
 </html>
+

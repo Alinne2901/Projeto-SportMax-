@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./style/login.css">
     <title>Login SportMax</title>
 </head>
+
 <body>
     <header>
         <div class="cabecalho">
@@ -26,17 +28,17 @@
             <form id="login-form">
                 <h1 class="titulo">Login</h1>
                 <p class="Acesso">Acesse sua conta para continuar</p>
-                <input placeholder="E-mail" type="email" name="email" required/>
-                <input placeholder="Senha" type="password" name="senha" required/>
+                <input placeholder="E-mail" type="email" name="email" required />
+                <input placeholder="Senha" type="password" name="senha" required />
                 <a href="#" class="esqueci__senha">Esqueci minha senha</a>
                 <button type="submit" class="botao__entrar">Entrar</button>
                 <p class="conta">Não tem conta? <a href="./cadastro.html">Cadastre-se</a></p>
             </form>
         </div>
-    </main> 
+    </main>
 
     <script>
-        document.getElementById("login-form").addEventListener("submit", function(event) {
+        document.getElementById("login-form").addEventListener("submit", function (event) {
             event.preventDefault(); // Evita o envio padrão do formulário
             debugger;
             const email = event.target.email.value;
@@ -58,14 +60,16 @@
             };
 
             fetch("http://localhost:3000/login", requestOptions)
-                .then(response => response.text())
-                .then(result => {
+                .then(response => {
+                    if (response.status > 299) {
+                        return response.json().then(error => { alert(error.message || "Erro ao fazer login."); });
+                    }
                     window.location.href = "index.html";
-                    // Você pode redirecionar ou exibir mensagem aqui
 
                 })
-                .catch(error => alert("Erro:",  error.message));
-            });
+                .catch(error => console.error("Erro desconhecido: " + error.message));
+        });
     </script>
 </body>
+
 </html>

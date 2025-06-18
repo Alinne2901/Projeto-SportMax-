@@ -13,6 +13,11 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware para parsear o corpo das requisições como JSON
 
+
+// Senhas criptografadas
+const bcrypt = require('bcrypt');
+
+
 // ---- ATENÇÃO: Configurações diretamente no código (NÃO RECOMENDADO PARA PRODUÇÃO) ----
 // Substitua pelos seus dados reais do MySQL
 const dbConfig = {
@@ -44,11 +49,12 @@ try {
 
 // Rota de Cadastro (POST /register)
 app.post('/cadastro', async (req, res) => {
-    const { nome, email, senha, cpf } = req.body; // 'senha' é usado no lugar de 'password'
+    console.log('Recebido cadastro:', req.body);
+    const { email, senha, cpf } = req.body; // 'senha' é usado no lugar de 'password'
 
     // Validação essencial mínima
-    if (!nome || !email || !senha) {
-        return res.status(400).json({ message: 'Nome, email e senha são obrigatórios.' });
+    if ( !email || !senha) {
+        return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
     }
 
     try {
@@ -59,13 +65,14 @@ app.post('/cadastro', async (req, res) => {
         }
 
         // ATENÇÃO: Senha está sendo salva em TEXTO PLANO. NÃO FAÇA ISSO EM PRODUÇÃO!
-        const plainSenha = senha;
+        const hashSenha = await bcrypt.hash(senha, 10); // 10 é o número de rounds
+
 
         // Insere o novo usuário no banco de dados
         // Se cpf não for fornecido, será inserido como NULL
         const [result] = await pool.query(
-            'INSERT INTO cadastro (nome, email, senha, cpf) VALUES (?, ?, ?, ?)',
-            [nome, email, plainSenha, cpf || null] // Salva a senha em texto plano
+            'INSERT INTO cadastro (email, senha, cpf) VALUES (?, ?, ?)',
+            [email, hashSenha, cpf || null] // Salva a senha em texto plano
         );
 
         // Retorna uma resposta de sucesso
@@ -82,45 +89,37 @@ app.post('/cadastro', async (req, res) => {
 
 // Rota de Login (POST /login)
 app.post('/login', async (req, res) => {
-    const { email, senha } = req.body; // 'senha' é usado no lugar de 'password'
+    const { email, senha } = req.body;
 
-    // Validação essencial mínima
     if (!email || !senha) {
         return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
     }
 
     try {
-        // Busca o usuário pelo email na tabela 'cadastro'
         const [users] = await pool.query('SELECT IdUsuario, email, senha FROM cadastro WHERE email = ?', [email]);
 
         if (users.length === 0) {
-            // Usuário não encontrado
-            return res.status(401).json({ message: 'Email ou senha inválidos.' }); // 401 Unauthorized
+            return res.status(401).json({ message: 'Email ou senha inválidos.' });
         }
 
         const user = users[0];
 
-        // ATENÇÃO: Comparando senha em TEXTO PLANO. NÃO FAÇA ISSO EM PRODUÇÃO!
-        // Compara a senha fornecida com a 'senha' do banco de dados
-        const isSenhaMatch = (senha === user.senha);
+        const isSenhaMatch = await bcrypt.compare(senha, user.senha);
 
         if (!isSenhaMatch) {
-            // Senha incorreta
             return res.status(401).json({ message: 'Email ou senha inválidos.' });
         }
 
-        // Se a senha estiver correta, gera um token JWT
         const token = jwt.sign(
-            { IdUsuario: user.IdUsuario, email: user.email }, // Usa IdUsuario no payload do token
+            { IdUsuario: user.IdUsuario, email: user.email },
             JWT_SECRET,
-            { expiresIn: '1h' } // O token expira em 1 hora
+            { expiresIn: '1h' }
         );
 
-        // Retorna o token para o cliente
         res.status(200).json({
             message: 'Login bem-sucedido!',
             token: token,
-            IdUsuario: user.IdUsuario // Retorna IdUsuario
+            IdUsuario: user.IdUsuario
         });
 
     } catch (error) {
@@ -128,6 +127,7 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ message: 'Erro interno no servidor ao tentar fazer login.' });
     }
 });
+
 
 // ---- Inicialização do Servidor ----
 app.listen(PORT, () => {
