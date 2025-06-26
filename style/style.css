@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --branco-principal: #FFFFFF;
+    --preto-principal: #000000;
+    --cor-cabecalho: #000000;
+    --cor-texto: #000;
+    --cor-linha: #000000;
+    --font-size-botao: 16px;
+    --font-family: 'Inter', sans-serif;
+    --color-botao-hover: #0000FF;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: var(--branco-principal);
+}
+
+header {
+    background-color: var(--cor-cabecalho);
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0 1rem;
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.botao__pesquisa {
+    width: 500px;
+    height: 30px;
+    padding: 0 1rem;
+    border-radius: 12px;
+    border: none;
+}
+
+nav a{
+    color: var(--branco-principal);
+    padding: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: var(--font-family);
+}
+
+nav a:hover {
+    color: var(--color-botao-hover);
+}
+
+.icones {
+    margin-right: 2rem;
+}
+
+.icones i {
+    font-size: 1.5rem;
+    color: var(--branco-principal);
+    cursor: pointer;
+}
+
+.icones i:hover {
+    color: var(--color-botao-hover);
+}
+
+.container {
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+
+.botao__categorias {
+    padding: 1rem;
+    border-bottom: 1px solid var(--cor-linha);
+}
+
+.botao__categorias a{
+    font-size: var(--font-size-botao);
+    color: var(--cor-texto);
+    padding: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao__categorias a:hover {
+    color: var(--color-botao-hover);
+}
+
+.carrosel {
+    text-align: center;
+    justify-content: center;
+    margin: 5rem 0 2rem 9rem;
+}
+
+.carrosel img {
+    width: 1000px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.produtos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    gap: 20px;
+    margin-bottom: 3rem;
+}
+
+.texto__recomendado {
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--branco-principal);
+    width: 180px;
+    height: 260px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px #aaaa;
+}
+.card img {
+    width: 100px;
+    height: 100px; 
+    margin-top: 20px;
+}
+
+.card h1 {
+    font-size: 1.2rem;
+}
+
+.card h2 {
+    margin-top: -1rem;
+    font-size: .9rem;
+    color: #aaaa;
+}
+
+.card span {
+    margin-top: -1rem;
+}
+
+.card button {
+    background-color: var(--color-botao-hover);
+    height: 30px;
+    border: none;
+    padding: 4px;
+    width: 80%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #137de8;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    gap: 30px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* footer */
+ 
+footer {
+    color: var(--color-botao-hover);
+    padding: 40px 20px 20px;
+    font-family: 'Roboto', sans-serif;
+    border-top: 1px solid var(--cor-linha);
+    margin-top: 70px;
+}
+ 
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+ 
+.footer-content > div {
+    flex: 1 1 200px;
+}
+ 
+.footer-content h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+}
+ 
+.footer-content ul {
+    list-style: none;
+}
+ 
+.footer-content li {
+    margin-bottom: 8px;
+}
+ 
+.footer-content a {
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+ 
+.footer-content a:hover {
+    text-decoration: underline;
+}
+ 
+/* Pagamento e Redes juntos */
+.pag-redes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+ 
+.pagamento, .rede-sociais {
+    flex: 1 1 300px;
+}
+ 
+.pagamento h3, .rede-sociais h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--cor-texto);
+}
+ 
+.icon_pagamento {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+ 
+.icon_pagamento img {
+    height: 30px;
+}
+ 
+/* Redes Sociais */
+.icon-redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+ 
+.icon-redes i {
+    font-size: 20px;
+    color: var(--cor-texto);
+}
+ 
+.icon-redes i:hover {
+    color: var(--color-botao-hover);
+}
+ 
+.copyright {
+    background-color: #ecf0f1;
+    text-align: center;
+    font-size: 15px;
+    color: var(--cor-texto);
+    margin-top: 40px;
+}

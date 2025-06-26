@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/cadastro_produto.css">
+    <link rel="website icon" href="./imagem/pagina_inicial/Logo-icon.png">
+    <title>Cadastro Produto</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho">
+        <div class="logo">
+            <img src="./imagem/pagina_inicial/Logo.jpeg" alt="Logo SportMax" class="logo__img" />
+        </div>
+        <h1>Cadastro de Produtos</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+        </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="Cadastro__produto">
+            <form>
+                <h1 class="titulo">Cadastrar produto</h1>
+                <input class="campo__nome__produto" placeholder="Informe o nome do produto" type="text" required/>
+                <select name="botao__categorias">
+                    <option value="" disabled selected>Selecione a categoria</option>
+                    <option value="roupa">Roupa</option>
+                    <option value="calçado">Calçado</option>
+                    <option value="esporte">Esporte</option>
+                    <option value="infantil">Infantil</option>
+                    <option value="bicicleta">Bicicleta</option>
+                </select>
+                <input class="campo__descricao" placeholder="Descrição do produto" type="text" required/>
+                <input class="campo__preco" placeholder="Informe o preço do produto" type="number" required/>
+                <input type="image">
+                <input type="text" placeholder="Informe a cor do produto">
+                <input type="text" placeholder="Informe a cor do produto">
+                
+                <select name="marcas">
+                    <option value="" disabled selected>Selecione a marca</option>
+                    <option value="umbro">Umbro</option>
+                    <option value="addidas">Addidas</option>
+                    <option value="nike">Nike</option>
+                    <option value="puma">Puma</option>
+                    <option value="mizuno">Mizuno</option>
+                </select>
+                <button>Enviar</button>
+            </form>
+        </div>
+    </main> 
+</body>
+</html>

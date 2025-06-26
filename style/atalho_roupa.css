@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Kanit:wght@500&display=swap');
+
+:root {
+  --branco: #ffffff;
+  --preto: #000000;
+  --cinza: #868686;
+  --azul-hover: #0000ff;
+  --fonte-principal: 'Inter', sans-serif;
+  --cor-linha: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fonte-principal);
+  background-color: var(--branco);
+  text-align: center;
+}
+
+header {
+  background-color: var(--preto);
+  color: var(--branco);
+  padding: 1rem;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo__img {
+  width: 80px;
+}
+
+nav a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+nav a:hover {
+  color: var(--azul-hover);
+}
+
+.container {
+    font-family: var(--font-family);
+    text-align: center;
+}
+
+
+.botao__categorias {
+    padding: 1rem;
+    border-bottom: 1px solid var(--cor-linha);
+}
+
+.botao__categorias a{
+    font-size: var(--font-size-botao);
+    color: var(--cor-texto);
+    padding: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao__categorias a:hover {
+    color: var(--azul-hover);
+}

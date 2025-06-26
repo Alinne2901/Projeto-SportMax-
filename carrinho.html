@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho SportMax</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./style/carrinho.css" />
+</head>
+<body>
+  <header>
+    <div class="cabecalho">
+      <div class="logo">
+        <img src="./imagem/pagina_inicial/Logo.jpeg" alt="Logo SportMax" class="logo__img" />
+      </div>
+      <h1>Carrinho</h1>
+      <nav>
+        <a href="./index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="categoria__carrinho">
+        <div class="categoria__produto">
+          <h2>Preço Unitário</h2>
+          <h2>Quantidade</h2>
+          <h2>Preço Total</h2>
+          <h2>Excluir</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos (exemplo de repetição) -->
+    <section class="container">
+      <div class="produto__carrinho">
+        <div class="produto__info">
+            <label><input type="checkbox" /></label>
+            <img src="./imagem/jordan/chinelo_jordan_Franchise_-removebg-preview.png" alt="Produto" />
+        </div>
+        <div class="categoria">
+          <h3>R$20.00</h3>
+          <div class="quantidade">
+            <button onclick="diminuir()">−</button>
+            <span id="contador">1</span>
+            <button onclick="aumentar()">+</button>
+          </div>
+          <h3>R$40.00</h3>
+          <div class="icone"><i class="fas fa-trash"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="produto__carrinho">
+        <div class="produto__info">
+            <label><input type="checkbox" /></label>
+            <img src="./imagem/jordan/chinelo_jordan_Franchise_-removebg-preview.png" alt="Produto" />
+        </div>
+        <div class="categoria">
+          <h3>R$20.00</h3>
+          <div class="quantidade">
+            <button onclick="diminuir()">−</button>
+            <span id="contador">1</span>
+            <button onclick="aumentar()">+</button>
+          </div>
+          <h3>R$20.00</h3>
+          <div class="icone"><i class="fas fa-trash"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repetir a seção de produtos conforme necessário -->
+
+    <section class="container__secundario">
+        <div class="barra__esquerda">
+            <label><input type="checkbox">Selecionar tudo</label>
+            <span class="texto__barra">Excluir</span>
+        </div>
+      <div class="texto_barra_fixada">
+        <h2>Total:</h2>
+        <h3>R$40.00</h3>
+      </div>
+    </section>
+  </main>
+
+  <script src="./carrinho.js"></script>
+</body>
+</html>
